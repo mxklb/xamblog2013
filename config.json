@@ -1,6 +1,6 @@
 {
   "locals": {
-    "url": "http://mxklb.github.io/xamblog2013",
+    "url": "http://localhost:8080",
     "name": "xamblog",
     "owner": "xam blak",
     "description": "backpacking new zealand"
