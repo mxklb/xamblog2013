@@ -7,8 +7,8 @@ then
   exit
 fi
 
-
 dir=$(pwd)
+
 echo -e "Path:\t$1"
 urlOld=$(echo ${2//\//\\/})
 urlNew=$(echo ${3//\//\\/})
@@ -26,5 +26,7 @@ grep -rl /page . | xargs sed -i 's/\/page/'$urlNew'\/page/g'
 # Relpace all absolute old urls with the new one
 grep -rl $2 . | xargs sed -i 's/'$urlOld'/'$urlNew'/g'
 
+# Replace all links to the root of the webside
+grep -rl 'href="/"' . | xargs sed -i 's/href=\"\/\"/href=\"'$urlNew'\"/g'
 
 cd $dir
