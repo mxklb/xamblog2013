@@ -29,4 +29,7 @@ grep -rl $2 . | xargs sed -i 's/'$urlOld'/'$urlNew'/g'
 # Replace all links to the root of the webside
 grep -rl 'href="/"' . | xargs sed -i 's/href=\"\/\"/href=\"'$urlNew'\"/g'
 
+# Substitute all archives.html links
+grep -rl /archive.html . | xargs sed -i 's/\/archive.html/'$urlNew'\/archive.html/g'
+
 cd $dir
