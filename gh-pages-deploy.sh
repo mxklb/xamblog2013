@@ -1,4 +1,11 @@
 #!/bin/bash
+user=$(git config user.name)
+mail=$(git config user.email)
+repo=$(basename `git rev-parse --show-toplevel`)
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+echo "$user($mail)/$repo branch=$branch"
+
 cd build
 git init
 git config user.name "travis"
